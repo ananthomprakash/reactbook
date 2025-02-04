@@ -1,27 +1,20 @@
 import React, { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [showMessage, setShowMessage] = useState(false);
 
-  const incrementCount = () => {
-    setCount(count + 1);
+  const toggleMessage = () => {
+    setShowMessage(!showMessage);
   };
 
-  const decrementCount = () => {
-    setCount(count - 1);
-  };
-
-  const resetCount = () => {
-    setCount(0);
-  };
   return (
     <div>
-      <h1>Welcome to React!</h1>
-      <p> This is my first react app</p>
-      <p> Count : {count}</p>
-      <button onClick={incrementCount}>Increment </button>
-      <button onClick={decrementCount}>Decrement </button>
-      <button onClick={resetCount}>Reset</button>
+      <h1> Welcome to React!</h1>
+      <p> This is my first React App</p>
+      <button onClick={toggleMessage}>
+        {showMessage ? "Hide Message" : "Show Message"}
+      </button>
+      {showMessage && <p> This is a secret message! 😊🙌</p>}
     </div>
   );
 }
